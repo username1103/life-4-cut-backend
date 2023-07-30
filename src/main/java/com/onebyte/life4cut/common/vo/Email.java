@@ -13,7 +13,7 @@ public class Email {
 
     private final String value;
 
-    private Email(String value) {
+    Email(String value) {
         this.value = value;
     }
 
@@ -22,10 +22,6 @@ public class Email {
             throw new IllegalArgumentException("Invalid Email " + value);
         }
 
-        return new Email(value);
-    }
-
-    public static Email fromDB(String value) {
         return new Email(value);
     }
 

@@ -1,6 +1,5 @@
 package com.onebyte.life4cut.common.vo;
 
-import com.onebyte.life4cut.common.attributeconverter.ZipcodeConverter;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Embeddable;

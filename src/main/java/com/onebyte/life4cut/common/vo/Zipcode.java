@@ -10,7 +10,7 @@ public class Zipcode {
 
     String value;
 
-    private Zipcode(String value) {
+    Zipcode(String value) {
         this.value = value;
     }
 

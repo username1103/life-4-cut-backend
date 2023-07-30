@@ -1,6 +1,6 @@
 package com.onebyte.life4cut.user.domain;
 
-import com.onebyte.life4cut.common.attributeconverter.EmailConverter;
+import com.onebyte.life4cut.common.vo.EmailConverter;
 import com.onebyte.life4cut.common.entity.BaseEntity;
 import com.onebyte.life4cut.common.vo.Address;
 import com.onebyte.life4cut.common.vo.Email;

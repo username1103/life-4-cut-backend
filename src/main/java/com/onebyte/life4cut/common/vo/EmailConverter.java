@@ -1,4 +1,4 @@
-package com.onebyte.life4cut.common.attributeconverter;
+package com.onebyte.life4cut.common.vo;
 
 
 import com.onebyte.life4cut.common.vo.Email;
@@ -15,6 +15,6 @@ public class EmailConverter implements AttributeConverter<Email, String> {
 
     @Override
     public Email convertToEntityAttribute(String dbData) {
-        return dbData == null ? null : Email.fromDB(dbData);
+        return dbData == null ? null : new Email(dbData);
     }
 }

@@ -1,4 +1,4 @@
-package com.onebyte.life4cut.common.attributeconverter;
+package com.onebyte.life4cut.common.vo;
 
 import com.onebyte.life4cut.common.vo.Zipcode;
 import jakarta.persistence.AttributeConverter;
@@ -14,6 +14,6 @@ public class ZipcodeConverter implements AttributeConverter<Zipcode, String> {
 
     @Override
     public Zipcode convertToEntityAttribute(String dbData) {
-        return dbData == null ? null : Zipcode.of(dbData);
+        return dbData == null ? null : new Zipcode(dbData);
     }
 }
