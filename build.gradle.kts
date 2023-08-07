@@ -51,6 +51,12 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
+//val queryDslDir = "src/main/generated"
+//
+//tasks.withType<JavaCompile> {
+//    options.generatedSourceOutputDirectory.set(file(queryDslDir))
+//}
+
 //tasks.test {
 //    outputs.dir(snippetsDir)
 //}

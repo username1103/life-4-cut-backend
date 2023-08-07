@@ -17,8 +17,8 @@ public class UserService {
     }
 
     @Transactional
-    public Long createUser(Email email, String nickname, Address address) {
-        User user = userRepository.save(User.create(nickname, email, address));
+    public Long createUser(Email email, String nickname) {
+        User user = userRepository.save(User.create(nickname, email));
 
         return user.getId();
     }

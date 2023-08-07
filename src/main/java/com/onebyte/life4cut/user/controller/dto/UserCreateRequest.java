@@ -19,33 +19,11 @@ public class UserCreateRequest {
     @NotBlank
     private String email;
 
-    @NotBlank
-    private String address;
-
-    @NotNull
-    private String detail;
-
-    @NotBlank
-    private String zipcode;
-
-
-    public Address getAddress() {
-        return new Address(address, detail, Zipcode.of(zipcode));
-    }
-
     public Email getEmail() {
         return Email.of(email);
     }
 
     public String getNickname() {
         return nickname;
-    }
-
-    public String getDetail() {
-        return detail;
-    }
-
-    public String getZipcode() {
-        return zipcode;
     }
 }

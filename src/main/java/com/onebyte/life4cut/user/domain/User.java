@@ -1,37 +1,41 @@
 package com.onebyte.life4cut.user.domain;
 
-import com.onebyte.life4cut.common.vo.EmailConverter;
 import com.onebyte.life4cut.common.entity.BaseEntity;
-import com.onebyte.life4cut.common.vo.Address;
 import com.onebyte.life4cut.common.vo.Email;
+import com.onebyte.life4cut.common.vo.EmailConverter;
+import com.onebyte.life4cut.common.vo.UrlPath;
+import com.onebyte.life4cut.common.vo.UrlPathConverter;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 public class User extends BaseEntity {
 
-    @Column()
+    @Column(nullable = false)
     private String nickname;
 
-    @Column()
+    @Column(nullable = false)
     @Convert(converter = EmailConverter.class)
     private Email email;
 
-    @Embedded
-    private Address address;
+    @Convert(converter = UrlPathConverter.class)
+    @Column(name = "profile_path", nullable = true)
+    private UrlPath profile;
 
-    protected User(String nickname, Email email, Address address) {
-        this.nickname = nickname;
-        this.email = email;
-        this.address = address;
-    }
+    @Column
+    private LocalDateTime deletedAt;
 
-    public static User create(String nickname, Email email, Address address) {
-        return new User(nickname, email, address);
+
+    public static User create(String nickname, Email email) {
+        User user = new User();
+        user.nickname = nickname;
+        user.email = email;
+        return user;
     }
 }
