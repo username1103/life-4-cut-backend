@@ -20,7 +20,6 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
-
 public class Picture extends BaseEntity {
 
     @Column(nullable = false)

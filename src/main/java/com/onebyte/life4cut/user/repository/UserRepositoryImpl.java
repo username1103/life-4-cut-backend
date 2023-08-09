@@ -30,7 +30,15 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     public List<SearchUserDto> search(String nickname) {
-        return query.select(Projections.constructor(SearchUserDto.class, user.id, user.nickname, user.email)).from(user).where(user.nickname.like("%" + nickname)).fetch();
+        return query.select(Projections
+                .constructor(
+                        SearchUserDto.class,
+                        user.id,
+                        user.nickname,
+                        user.email))
+                .from(user)
+                .where(user.nickname.like("%" + nickname))
+                .fetch();
     }
 
 }

@@ -1,6 +1,5 @@
 package com.onebyte.life4cut.common.vo;
 
-import jakarta.persistence.Embeddable;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
@@ -22,5 +21,4 @@ public class UrlPath {
     public String getValue() {
         return value;
     }
-
 }
