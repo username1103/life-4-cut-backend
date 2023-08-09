@@ -2,7 +2,7 @@ package com.onebyte.life4cut.user.controller;
 
 import com.onebyte.life4cut.user.controller.dto.UserCreateRequest;
 import com.onebyte.life4cut.user.controller.dto.UserCreateResponse;
-import com.onebyte.life4cut.user.service.UserService;
+import com.onebyte.life4cut.user.domain.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

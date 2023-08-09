@@ -3,7 +3,6 @@ package com.onebyte.life4cut.common.vo;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

@@ -1,6 +1,5 @@
-package com.onebyte.life4cut.user.service;
+package com.onebyte.life4cut.user.domain;
 
-import com.onebyte.life4cut.common.vo.Address;
 import com.onebyte.life4cut.common.vo.Email;
 import com.onebyte.life4cut.user.domain.User;
 import com.onebyte.life4cut.user.repository.UserRepositoryImpl;
