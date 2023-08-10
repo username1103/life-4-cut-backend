@@ -1,13 +1,11 @@
-package com.onebyte.life4cut.user.controller.dto;
+package com.onebyte.life4cut.sample.controller.dto;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.onebyte.life4cut.common.vo.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public record UserCreateRequest(
+public record SampleCreateRequest(
         @NotBlank
         @Size(max = 20)
         String nickname,
@@ -16,7 +14,7 @@ public record UserCreateRequest(
         String email
 ) {
 
-        public Email getEmail() {
-                return Email.of(email);
-        }
+    public Email getEmail() {
+        return Email.of(email);
+    }
 }

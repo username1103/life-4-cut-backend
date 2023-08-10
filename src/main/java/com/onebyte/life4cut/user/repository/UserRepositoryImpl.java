@@ -1,6 +1,7 @@
 package com.onebyte.life4cut.user.repository;
 
 import com.onebyte.life4cut.user.domain.User;
+import com.onebyte.life4cut.user.domain.UserRepository;
 import com.onebyte.life4cut.user.repository.dto.SearchUserDto;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;

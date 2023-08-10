@@ -1,8 +1,8 @@
-package com.onebyte.life4cut.user.controller;
+package com.onebyte.life4cut.sample.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.onebyte.life4cut.user.controller.dto.UserCreateRequest;
-import com.onebyte.life4cut.user.domain.UserService;
+import com.onebyte.life4cut.sample.controller.dto.SampleCreateRequest;
+import com.onebyte.life4cut.sample.domain.SampleService;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.RestDocumentationExtension;
 import org.springframework.restdocs.payload.JsonFieldType;
@@ -32,12 +31,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @AutoConfigureRestDocs
-@WebMvcTest(value = {UserController.class})
+@WebMvcTest(value = {SampleController.class})
 @ExtendWith({MockitoExtension.class, RestDocumentationExtension.class})
-class UserControllerTest {
-
+class SampleControllerTest {
     @MockBean
-    private UserService userService;
+    private SampleService sampleService;
 
     @Autowired
     private MockMvc mockMvc;
@@ -51,13 +49,13 @@ class UserControllerTest {
         @DisplayName("유저를 생성하고 유저아이디를 반환한다")
         void createUserAndResponseUserId() throws Exception {
             // given
-            UserCreateRequest request = new UserCreateRequest("nickname", "email@gmail.com");
+            SampleCreateRequest request = new SampleCreateRequest("nickname", "email@gmail.com");
 
-            when(userService.createUser(any(), any())).thenReturn(100L);
+            when(sampleService.createSample(any(), any())).thenReturn(100L);
 
             // when
             ResultActions result = mockMvc.perform(
-                    post("/v1/users")
+                    post("/v1/samples")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(objectMapper.writeValueAsString(request))
             );
@@ -68,17 +66,16 @@ class UserControllerTest {
                     .andExpect(jsonPath("id", Matchers.equalTo(100)))
                     .andDo(
                             document(
-                                    "Auth",
+                                    "Sample",
                                     requestFields(
-                                            fieldWithPath("nickname").type(JsonFieldType.STRING).description("가입할 유저 닉네임"),
-                                            fieldWithPath("email").type(JsonFieldType.STRING).description("가입할 유저 이메일")
+                                            fieldWithPath("nickname").type(JsonFieldType.STRING).description("만들 샘플 닉네임"),
+                                            fieldWithPath("email").type(JsonFieldType.STRING).description("만들 샘플 이메일")
                                     ),
                                     responseFields(
-                                            fieldWithPath("id").type(JsonFieldType.NUMBER).description("가입된 유저 아이디")
+                                            fieldWithPath("id").type(JsonFieldType.NUMBER).description("만들어진 샘플 아이디")
                                     )
                             )
                     );
         }
     }
-
 }
