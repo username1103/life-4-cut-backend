@@ -16,4 +16,6 @@ public abstract class DefaultFixtureFactory<T> {
 
     public abstract T make(BiConsumer<T, ArbitraryBuilder<T>> builder);
 
+    public abstract T save(BiConsumer<T, ArbitraryBuilder<T>> builder);
+
 }

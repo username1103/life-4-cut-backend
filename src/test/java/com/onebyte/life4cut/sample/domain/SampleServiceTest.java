@@ -18,7 +18,7 @@ public class SampleServiceTest {
 
     private final SampleService sampleService = new SampleService(sampleRepository);
 
-    private final SampleFixtureFactoryFactory sampleFixtureFactory = new SampleFixtureFactoryFactory();
+    private final SampleFixtureFactoryFactory sampleFixtureFactory = new SampleFixtureFactoryFactory(null);
 
     @Nested
     class CreateSample {
@@ -28,7 +28,7 @@ public class SampleServiceTest {
             // given
             Email email = Email.of("test@gmail.com");
             String nickname = "nickname";
-            
+
             Sample sample = sampleFixtureFactory.make((entity, builder) -> {
                 builder.set("id", 1L);
                 builder.set("email", email);
