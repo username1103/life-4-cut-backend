@@ -16,9 +16,12 @@ public class Email {
     private static final Pattern pattern = Pattern.compile(EMAIL_PATTERN);
 
 
-    private final String value;
+    private String value;
 
-    Email(String value) {
+    protected Email() {
+    }
+
+    protected Email(String value) {
         this.value = value;
     }
 

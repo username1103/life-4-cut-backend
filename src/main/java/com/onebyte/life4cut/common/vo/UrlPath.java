@@ -8,7 +8,10 @@ import lombok.ToString;
 public class UrlPath {
 
 
-    private final String value;
+    private String value;
+
+    protected UrlPath() {
+    }
 
     UrlPath(String value) {
         this.value = value;
